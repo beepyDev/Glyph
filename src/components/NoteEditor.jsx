@@ -1,18 +1,18 @@
-import { useState, useEffect, useRef } from 'react';
-import styles from './NoteEditor.module.css';
+import { useState, useEffect, useRef } from "react";
+import styles from "./NoteEditor.module.css";
 
 const NoteEditor = ({ note, onUpdateNote, onNewNote }) => {
   const [isVisible, setIsVisible] = useState(true);
-  const [title, setTitle] = useState('');
+  const [title, setTitle] = useState("");
   const contentRef = useRef(null);
 
   useEffect(() => {
     if (note) {
-      setTitle(note.title || '');
+      setTitle(note.title || "");
       if (contentRef.current) {
         const currentContent = contentRef.current.innerHTML;
-        if (currentContent !== (note.content || '')) {
-          contentRef.current.innerHTML = note.content || '';
+        if (currentContent !== (note.content || "")) {
+          contentRef.current.innerHTML = note.content || "";
           // Move cursor to end
           const range = document.createRange();
           const sel = window.getSelection();
@@ -30,19 +30,19 @@ const NoteEditor = ({ note, onUpdateNote, onNewNote }) => {
     onUpdateNote({
       ...note,
       title: e.target.value,
-      lastModified: Date.now()
+      lastModified: Date.now(),
     });
   };
 
-  const handleContentChange = (e) => {
+  const handleContentChange = () => {
     if (!contentRef.current) return;
-    
+
     const newContent = contentRef.current.innerHTML;
     if (note.content !== newContent) {
       onUpdateNote({
         ...note,
         content: newContent,
-        lastModified: Date.now()
+        lastModified: Date.now(),
       });
     }
   };
@@ -55,27 +55,35 @@ const NoteEditor = ({ note, onUpdateNote, onNewNote }) => {
 
   if (!note) {
     return (
-      <div className={`${styles.emptyEditor} ${!isVisible ? styles.hidden : ''}`}>
-        <p style={{ textAlign: 'center' }}>👋 Welcome to Glyph<br />
-          <a 
-            onClick={onNewNote} 
-            style={{ 
-              cursor: 'pointer', 
-              textDecoration: 'none',
-              fontWeight: 'bold'
+      <div
+        className={`${styles.emptyEditor} ${!isVisible ? styles.hidden : ""}`}
+      >
+        <p style={{ textAlign: "center" }}>
+          👋 Welcome to Glyph
+          <br />
+          <a
+            onClick={onNewNote}
+            style={{
+              cursor: "pointer",
+              textDecoration: "none",
+              fontWeight: "bold",
             }}
-            onMouseEnter={(e) => e.target.style.textDecoration = 'underline'}
-            onMouseLeave={(e) => e.target.style.textDecoration = 'none'}
+            onMouseEnter={(e) => (e.target.style.textDecoration = "underline")}
+            onMouseLeave={(e) => (e.target.style.textDecoration = "none")}
           >
             + new note
           </a>
+          <div style={{ position: "relative", top: "calc(50vh - 2em - 16px)" }}>
+            <a href="https://x.com/cldratio">@cldratio</a> |{" "}
+            <a onClick={() => {window.alert('Bitcoin address:\nTODO')}}>BTC</a>
+          </div>
         </p>
       </div>
     );
   }
 
   return (
-    <div className={`${styles.editor} ${!isVisible ? styles.hidden : ''}`}>
+    <div className={`${styles.editor} ${!isVisible ? styles.hidden : ""}`}>
       <input
         type="text"
         value={title}
