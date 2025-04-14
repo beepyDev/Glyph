@@ -75,7 +75,15 @@ const NoteEditor = ({ note, onUpdateNote, onNewNote }) => {
           </a>
           <div style={{ position: "relative", top: "calc(50vh - 2em - 16px)" }}>
             <a href="https://x.com/cldratio">@cldratio</a> |{" "}
-            <a onClick={() => {window.alert('Bitcoin address:\nbc1qsya9j8q8z8aqsx5vscsfws779x6pa3azd0tykt')}}>BTC</a>
+            <a
+              onClick={() => {
+                window.alert(
+                  "Bitcoin address:\nbc1qsya9j8q8z8aqsx5vscsfws779x6pa3azd0tykt"
+                );
+              }}
+            >
+              BTC
+            </a>
           </div>
         </p>
       </div>
@@ -88,13 +96,13 @@ const NoteEditor = ({ note, onUpdateNote, onNewNote }) => {
         type="text"
         value={title}
         onChange={handleTitleChange}
-        placeholder="Note title"
+        placeholder="Untitled Note"
         className={styles.titleInput}
       />
       <div
         ref={contentRef}
         contentEditable
-        placeholder="Write your note here..."
+        placeholder="Type away..."
         className={styles.contentInput}
         onInput={handleContentChange}
       />

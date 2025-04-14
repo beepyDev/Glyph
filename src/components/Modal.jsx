@@ -1,7 +1,9 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import styles from './Modal.module.css';
 
 export default function Modal({ isOpen, onClose, onConfirm, title, message }) {
+  const confirmButtonRef = useRef(null);
+
   useEffect(() => {
     const handleEscape = (e) => {
       if (e.key === 'Escape') onClose();
@@ -9,6 +11,7 @@ export default function Modal({ isOpen, onClose, onConfirm, title, message }) {
 
     if (isOpen) {
       document.addEventListener('keydown', handleEscape);
+      confirmButtonRef.current?.focus();
       return () => document.removeEventListener('keydown', handleEscape);
     }
   }, [isOpen, onClose]);
@@ -24,7 +27,7 @@ export default function Modal({ isOpen, onClose, onConfirm, title, message }) {
           <button className={styles.cancelButton} onClick={onClose}>
             Cancel
           </button>
-          <button className={styles.confirmButton} onClick={onConfirm}>
+          <button ref={confirmButtonRef} className={styles.confirmButton} onClick={onConfirm}>
             Delete
           </button>
         </div>
