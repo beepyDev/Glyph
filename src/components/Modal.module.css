@@ -58,6 +58,23 @@
   font-weight: 500;
 }
 
+.confirmButton.success {
+  background-color: var(--success-color, #28a745);
+}
+
+.confirmButton.success:hover {
+  background-color: var(--success-hover, #218838);
+}
+
+.confirmButton.warning {
+  background-color: var(--warning-color, #ffc107);
+  color: #000;
+}
+
+.confirmButton.warning:hover {
+  background-color: var(--warning-hover, #e0a800);
+}
+
 .cancelButton:hover {
   background-color: var(--bg-tertiary);
 }

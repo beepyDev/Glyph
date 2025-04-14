@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import styles from './Modal.module.css';
 
-export default function Modal({ isOpen, onClose, onConfirm, title, message }) {
+export default function Modal({ isOpen, onClose, onConfirm, title, message, showCancel = true, confirmText = 'Delete', confirmButtonClass }) {
   const confirmButtonRef = useRef(null);
 
   useEffect(() => {
@@ -24,11 +24,17 @@ export default function Modal({ isOpen, onClose, onConfirm, title, message }) {
         <h2 className={styles.title}>{title}</h2>
         <p className={styles.message}>{message}</p>
         <div className={styles.buttons}>
-          <button className={styles.cancelButton} onClick={onClose}>
-            Cancel
-          </button>
-          <button ref={confirmButtonRef} className={styles.confirmButton} onClick={onConfirm}>
-            Delete
+          {showCancel && (
+            <button className={styles.cancelButton} onClick={onClose}>
+              Cancel
+            </button>
+          )}
+          <button
+            ref={confirmButtonRef}
+            className={`${styles.confirmButton} ${confirmButtonClass || ''}`}
+            onClick={onConfirm}
+          >
+            {confirmText}
           </button>
         </div>
       </div>
