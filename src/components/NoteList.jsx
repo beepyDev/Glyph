@@ -9,7 +9,7 @@ const NoteList = ({ notes, activeNote, onNoteSelect, onNewNote, onDeleteNote }) 
     <div className={styles.sidebar}>
       <div className={styles.sidebarHeader}>
         <div className={styles.headerLeft}>
-          <h2>Glyph</h2>
+          <img src="/Glyph.svg" style={{height: "2em"}} /><h2>Glyph</h2>
           <ThemeToggle />
         </div>
         <button onClick={onNewNote} className={styles.newButton}>

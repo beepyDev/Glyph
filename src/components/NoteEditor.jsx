@@ -74,7 +74,7 @@ const NoteEditor = ({ note, onUpdateNote, onNewNote }) => {
             + new note
           </a>
           <div style={{ position: "relative", top: "calc(50vh - 2em - 16px)" }}>
-            <a href="https://x.com/cldratio">@cldratio</a> |{" "}
+            <a href="https://x.com/cldratio">@cldratio</a> •{" "}
             <a
               onClick={() => {
                 window.alert(
@@ -82,7 +82,7 @@ const NoteEditor = ({ note, onUpdateNote, onNewNote }) => {
                 );
               }}
             >
-              BTC
+              $BTC
             </a>
           </div>
         </p>
