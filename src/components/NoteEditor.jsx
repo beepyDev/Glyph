@@ -1,10 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 import styles from "./NoteEditor.module.css";
+import { useTheme } from "../context/ThemeContext";
 
 const NoteEditor = ({ note, onUpdateNote, onNewNote }) => {
   const [isVisible, setIsVisible] = useState(true);
   const [title, setTitle] = useState("");
   const contentRef = useRef(null);
+  const { theme } = useTheme();
 
   useEffect(() => {
     if (note) {
@@ -37,7 +39,14 @@ const NoteEditor = ({ note, onUpdateNote, onNewNote }) => {
   const handleContentChange = () => {
     if (!contentRef.current) return;
 
-    const newContent = contentRef.current.innerHTML;
+    let newContent = contentRef.current.innerHTML;
+    // Clean up empty divs and normalize content
+    newContent = newContent
+      .replace(/<div><br><\/div>/g, "<br>")
+      .replace(/<div><\/div>/g, "")
+      .replace(/^\s*<br>\s*$/, "");
+
+    // Update content only if it's different
     if (note.content !== newContent) {
       onUpdateNote({
         ...note,
@@ -58,6 +67,18 @@ const NoteEditor = ({ note, onUpdateNote, onNewNote }) => {
       <div
         className={`${styles.emptyEditor} ${!isVisible ? styles.hidden : ""}`}
       >
+        <img
+          src="/Glyph.svg"
+          style={{
+            position: "absolute",
+            width: "300px",
+            top: "0px",
+            filter: theme === "light" ? "grayscale(100%) brightness(180%)" : "grayscale(100%) brightness(50%)",
+            userSelect: "none",
+            WebkitUserDrag: "none",
+            draggable: false
+          }}
+        />
         <p style={{ textAlign: "center" }}>
           👋 Welcome to Glyph
           <br />
