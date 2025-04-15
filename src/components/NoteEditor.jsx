@@ -1,9 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import styles from "./NoteEditor.module.css";
 import { useTheme } from "../context/ThemeContext";
+import { useSidebar } from "../context/SidebarContext";
 
 const NoteEditor = ({ note, onUpdateNote, onNewNote }) => {
 	const [isVisible, setIsVisible] = useState(true);
+	const { isCollapsed } = useSidebar();
 	const [title, setTitle] = useState("");
 	const contentRef = useRef(null);
 	const { theme } = useTheme();
@@ -65,7 +67,7 @@ const NoteEditor = ({ note, onUpdateNote, onNewNote }) => {
 	if (!note) {
 		return (
 			<div
-				className={`${styles.emptyEditor} ${!isVisible ? styles.hidden : ""}`}
+				className={`${styles.emptyEditor} ${!isVisible ? styles.hidden : ""} ${isCollapsed ? styles.sidebarCollapsed : ""}`}
 			>
 				<img
 					src="/Glyph.svg"
@@ -115,7 +117,7 @@ const NoteEditor = ({ note, onUpdateNote, onNewNote }) => {
 	}
 
 	return (
-		<div className={`${styles.editor} ${!isVisible ? styles.hidden : ""}`}>
+		<div className={`${styles.editor} ${!isVisible ? styles.hidden : ""} ${isCollapsed ? styles.sidebarCollapsed : ""}`}>
 			<input
 				type="text"
 				value={title}

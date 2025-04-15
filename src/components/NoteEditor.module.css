@@ -1,12 +1,21 @@
 .editor {
   flex: 1;
   padding: 20px;
+  padding-left: 40px;
   background-color: var(--bg-primary);
   display: flex;
   flex-direction: column;
   gap: 10px;
   opacity: 1;
   transform: translateY(0);
+  width: calc(100vw - 340px);
+  margin-left: 340px;
+  transition: width 0.3s ease, margin-left 0.3s ease;
+}
+
+.editor.sidebarCollapsed {
+  width: 100vw;
+  margin-left: 0;
 }
 
 .editor:empty {
