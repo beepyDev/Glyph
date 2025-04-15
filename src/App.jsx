@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import NoteList from './components/NoteList'
 import NoteEditor from './components/NoteEditor'
+import { SidebarProvider } from './context/SidebarContext'
 
 function App() {
 	const [notes, setNotes] = useState(() => {
@@ -42,8 +43,9 @@ function App() {
 	}
 
 	return (
-		<div className="App">
-			<NoteList
+		<SidebarProvider>
+			<div className="App">
+				<NoteList
 				notes={notes}
 				activeNote={activeNoteId}
 				onNoteSelect={setActiveNoteId}
@@ -54,8 +56,9 @@ function App() {
 				note={activeNote}
 				onUpdateNote={onUpdateNote}
 				onNewNote={onAddNote}
-			/>
-		</div>
+				/>
+			</div>
+		</SidebarProvider>
 	)
 }
 

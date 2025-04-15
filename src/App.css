@@ -4,11 +4,21 @@
   width: 100vw;
   overflow: hidden;
   background-color: #ffffff;
+  position: relative;
 }
 
 .App > *:last-child {
   flex: 1;
   min-width: 0;
+  transition: margin-left 0.3s ease;
+}
+
+.sidebar.collapsed + *:last-child {
+  margin-left: 0;
+}
+
+.sidebar:not(.collapsed) + *:last-child {
+  margin-left: 340px;
 }
 
 * {

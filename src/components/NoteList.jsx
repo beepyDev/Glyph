@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "./NoteList.module.css";
 import ThemeToggle from "./ThemeToggle";
 import Modal from "./Modal";
+import { useSidebar } from "../context/SidebarContext";
 
 const NoteList = ({
 	notes,
@@ -14,17 +15,30 @@ const NoteList = ({
 		isOpen: false,
 		noteId: null,
 	});
+	const { isCollapsed, toggleSidebar } = useSidebar();
+
 	return (
-		<div className={styles.sidebar}>
+		<div className={`${styles.sidebar} ${isCollapsed ? styles.collapsed : ''}`}>
 			<div className={styles.sidebarHeader}>
 				<div className={styles.headerLeft}>
 					<img src="/Glyph.svg" style={{ height: "2em" }} />
 					<h2>Glyph</h2>
 					<ThemeToggle />
 				</div>
-				<button onClick={onNewNote} className={styles.newButton}>
-					+ New Note
-				</button>
+				<div className={styles.headerRight}>
+					<button onClick={onNewNote} className={styles.newButton}>
+						+ New Note
+					</button>
+					<button 
+						onClick={toggleSidebar} 
+						className={`${styles.collapseButton} ${isCollapsed ? styles.collapsed : ''}`}
+						title={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
+					>
+						<svg viewBox="0 0 24 24" width="24" height="24">
+							<path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+						</svg>
+					</button>
+				</div>
 			</div>
 			<div className={styles.noteList}>
 				{notes.map((note) => (
