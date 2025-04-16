@@ -51,7 +51,6 @@
   overflow-y: auto;
   white-space: pre-wrap;
   word-wrap: break-word;
-
 }
 
 .contentInput:focus {
@@ -68,6 +67,14 @@
   background-color: var(--bg-secondary);
   opacity: 1;
   transform: scale(1);
+  width: calc(100vw - 340px);
+  margin-left: 340px;
+  transition: width 0.3s ease, margin-left 0.3s ease;
+}
+
+.emptyEditor.sidebarCollapsed {
+  width: 100vw;
+  margin-left: 0;
 }
 
 .emptyEditor.hidden {
