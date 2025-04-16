@@ -33,6 +33,8 @@ In the future, it will have rich AI integration and robust features. But for now
 - Built-in LoFi radio
 - Better accessibility features
 - DeepL translation integration
+- An Electron app for Windows, GNU/Linux, and MacOS
+- Mobile support and native Android app
 
 ## Made with
 
