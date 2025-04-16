@@ -41,6 +41,13 @@ In the future, it will have rich AI integration and robust features. But for now
 
 ## Getting Started
 
+## Option 1 - via Vercel
+
+If you want to use or try out Glyph, we recommend using [its deployment on Vercel](https://glyph-ai.vercel.app).  
+However, you may also build from source, which will be explained below.
+
+## Option 2 - from source
+
 ### Prerequisites
 
 - Node.js (Latest LTS version recommended)
