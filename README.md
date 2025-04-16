@@ -1,4 +1,4 @@
-# Glyph - The
+# Glyph - Reinventing Notes
 
 Glyph is a modern, React-based note-taking application that provides a clean and intuitive interface for managing your notes.
 In the future, it will have rich AI integration and robust features. But for now, it's just a modest (but ambitious) notes app.
