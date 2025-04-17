@@ -33,6 +33,8 @@ In the future, it will have rich AI integration and robust features. But for now
 - Built-in LoFi radio
 - Better accessibility features
 - DeepL translation integration
+- An Electron app for Windows, GNU/Linux, and MacOS
+- Mobile support and native Android app
 
 ## Made with
 
@@ -40,6 +42,13 @@ In the future, it will have rich AI integration and robust features. But for now
 - Vite
 
 ## Getting Started
+
+## Option 1 - via Vercel
+
+If you want to use or try out Glyph, we recommend using [its deployment on Vercel](https://glyph-ai.vercel.app).  
+However, you may also build from source, which will be explained below.
+
+## Option 2 - from source
 
 ### Prerequisites
 
