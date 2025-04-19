@@ -4,7 +4,7 @@
   right: -100%;
   width: 400px;
   height: 100vh;
-  background-color: var(--background-color);
+  background-color: var(--bg-primary);
   box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
   transition: right 0.3s ease-in-out;
   z-index: 1000;
@@ -29,7 +29,7 @@
   border: none;
   font-size: 24px;
   cursor: pointer;
-  color: var(--text-color);
+  color: var(--text-primary);
 }
 
 .chatContainer {
@@ -41,13 +41,13 @@
 
 .chatContainer h2 {
   margin: 0;
-  color: var(--text-color);
+  color: var(--text-primary);
 }
 
 .messageList {
   flex-grow: 1;
   overflow-y: auto;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--bg-tertiary);
   border-radius: 8px;
   padding: 20px;
   margin: 20px 0;
@@ -61,15 +61,25 @@
 .input {
   flex-grow: 1;
   padding: 10px;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--bg-tertiary);
   border-radius: 4px;
-  background-color: var(--background-color);
-  color: var(--text-color);
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  transition: border-color 0.2s;
+}
+
+.input:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--accent-color);
 }
 
 .sendButton {
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: var(--accent-color);
   color: white;
   border: none;
   border-radius: 4px;
