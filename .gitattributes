@@ -1,0 +1,29 @@
+# Auto detect text files and perform LF normalization
+* text=auto eol=lf
+
+# Source code
+*.css text diff=css
+*.html text diff=html
+*.js text
+*.jsx text
+*.json text
+*.md text diff=markdown
+
+# Documentation
+CONTRIBUTING.md text
+LICENSE text
+README.md text
+
+# Configuration files
+.gitattributes text
+.gitignore text
+*.config.js text
+
+# Graphics
+*.svg text
+
+# Fonts
+*.ttf binary
+
+# Exclude npm files from GitHub language stats
+package-lock.json linguist-generated=true
