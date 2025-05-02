@@ -11,7 +11,7 @@
 }
 
 .App > * {
-  transition: var(--transition-all);
+  transition: var(--transition-transform);
 }
 
 .App > *:last-child {
@@ -42,4 +42,10 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--neutral-500);
+}
+
+/* Firefox scrollbar styles */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--neutral-400) var(--bg-secondary);
 }

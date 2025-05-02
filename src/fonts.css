@@ -1,6 +1,10 @@
 @font-face {
   font-family: 'Funnel Sans';
-  src: url('/FunnelSans-Medium.ttf') format('truetype');
+  src: url('/FunnelSans-Medium.woff2') format('woff2'),
+       url('/FunnelSans-Medium.ttf')   format('truetype');
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
+  font-style: normal;
+  font-display: swap;
 }
