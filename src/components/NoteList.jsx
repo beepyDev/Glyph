@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./NoteList.module.css";
 import ThemeToggle from "./ThemeToggle";
+import "../fonts.css";
 import Modal from "./Modal";
 import { useSidebar } from "../context/SidebarContext";
 
@@ -23,7 +24,7 @@ const NoteList = ({
       <div className={styles.sidebarHeader}>
         <div className={styles.headerLeft}>
           <img src="/Glyph.svg" style={{ height: "2em", userSelect: "none", WebkitUserDrag: "none" }} />
-          <h2>Glyph</h2>
+          <h2 style={{ fontFamily: "'Funnel Sans', sans-serif" }}>Glyph</h2>
           <ThemeToggle />
         </div>
         <div className={styles.headerRight}>

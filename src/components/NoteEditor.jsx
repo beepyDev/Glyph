@@ -99,8 +99,8 @@ const NoteEditor = ({ note, onUpdateNote, onNewNote }) => {
 					>
 						+ new note
 					</a>
-					<div style={{ position: "relative", top: "calc(50vh - 2em - 16px)" }}>
-						<a href="https://x.com/cldratio">@cldratio</a> •{" "}
+					<div style={{ position: "relative", top: "calc(50vh - 4em - 16px)" }}>
+						<a href="https://x.com/cldratio" target="_blank">@cldratio</a> •{" "}
 						<a
 							onClick={() => {
 								window.alert(
