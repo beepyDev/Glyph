@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import NoteList from './components/NoteList'
 import NoteEditor from './components/NoteEditor'
-import AIChatOverlay from './components/AIChatOverlay'
+
 import { SidebarProvider } from './context/SidebarContext'
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
 		return savedNotes ? JSON.parse(savedNotes) : []
 	})
 	const [activeNoteId, setActiveNoteId] = useState(null)
-	const [isAiOverlayOpen, setIsAiOverlayOpen] = useState(false)
+
 
 	const activeNote = notes.find(note => note.id === activeNoteId)
 
@@ -53,14 +53,14 @@ function App() {
 					onNoteSelect={setActiveNoteId}
 					onNewNote={onAddNote}
 					onDeleteNote={onDeleteNote}
-					onToggleAiOverlay={setIsAiOverlayOpen}
+	
 				/>
 				<NoteEditor
 					note={activeNote}
 					onUpdateNote={onUpdateNote}
 					onNewNote={onAddNote}
 				/>
-				<AIChatOverlay isOpen={isAiOverlayOpen} onClose={() => setIsAiOverlayOpen(false)} />
+
 			</div>
 		</SidebarProvider>
 	)

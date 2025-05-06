@@ -83,26 +83,7 @@
   box-shadow: var(--shadow-md);
 }
 
-.aiButton {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: var(--space-2);
-  color: var(--text-primary);
-  transition: var(--transition-all);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius-full);
-  width: 32px;
-  height: 32px;
-}
 
-.aiButton:hover {
-  background-color: var(--bg-tertiary);
-  color: var(--primary-500);
-  transform: scale(1.05);
-}
 
 .newButton {
   background-color: var(--accent-color);
@@ -136,17 +117,23 @@
   position: relative;
 }
 
+.noteList {
+  position: relative;
+}
+
 .noteList::after {
   content: '';
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
+  width: 340px;
   height: 40px;
   background: linear-gradient(to top, var(--bg-primary) 0%, rgba(var(--shadow-color-rgb), 0) 100%);
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.2s ease;
+  z-index: 1;
 }
 
 .noteList:not(:hover)::-webkit-scrollbar-thumb {
